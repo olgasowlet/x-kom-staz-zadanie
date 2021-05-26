@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     html {
@@ -7,5 +7,10 @@ export const GlobalStyle = createGlobalStyle`
 
     *, ::before, ::after {
         box-sizing: inherit;
+    }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.3em;
     }
 `;
