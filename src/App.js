@@ -6,10 +6,10 @@ function App() {
   return (
     <Main>
       <RegistrationForm>
-        <Label>Liczba miejsc:</Label>
-        <Input type="number" />
-        <Checkbox type="checkbox" />
-        <CheckboxLabel>Czy miejsca mają być obok siebie?</CheckboxLabel>
+        <Label for="numberOfSeats">Liczba miejsc:</Label>
+        <Input type="number" id="numberOfSeats"/>
+        <Checkbox type="checkbox" id="sideBySide"/>
+        <CheckboxLabel for="sideBySide">Czy miejsca mają być obok siebie?</CheckboxLabel>
         <Button>Wybierz miejsca</Button>
       </RegistrationForm>
     </Main>
