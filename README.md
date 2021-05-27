@@ -5,6 +5,7 @@
 - OG image, icon itd.
 - widoki x3 - wejście, wybór miejsc, potwierdzenie rezerwacji
 - LOGIKA
+    - Po kliknięciu "Wybierz miejsca" przekazanie wartości inputów do stanu oraz przekierowanie do widoku sali kinowej.
 - deployment na gh pages
 - walidacja numery miejsc (nie mniej niż 0 i max tyle ile jest możliwych)
 - poprawić check icon tak, żeby wystawał
