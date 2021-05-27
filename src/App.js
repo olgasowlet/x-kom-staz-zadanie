@@ -1,18 +1,20 @@
 import React from 'react';
-import Main from "./common/Main";
-import { RegistrationForm, Label, CheckboxLabel, Input, Checkbox, Button } from "./styled";
+import { HashRouter, Route } from 'react-router-dom';
+import RegistrationForm from './features/RegistrationForm';
 
 function App() {
   return (
-    <Main>
-      <RegistrationForm>
-        <Label for="numberOfSeats">Liczba miejsc:</Label>
-        <Input type="number" id="numberOfSeats"/>
-        <Checkbox type="checkbox" id="sideBySide"/>
-        <CheckboxLabel for="sideBySide">Czy miejsca mają być obok siebie?</CheckboxLabel>
-        <Button>Wybierz miejsca</Button>
-      </RegistrationForm>
-    </Main>
+    <HashRouter>
+      <Route path="/screening-room">
+        <div>Sala kinowa</div>
+      </Route>
+      <Route path="/confirmation">
+        <div>Potwierdzenie rejestracji</div>
+      </Route>
+      <Route path="/">
+        <RegistrationForm/>
+      </Route>
+    </HashRouter>
   );
 }
 

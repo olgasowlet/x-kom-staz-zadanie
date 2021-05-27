@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import checkImage from "./images/check32.png";
+import checkImage from "../../images/check32.png";
 
-export const RegistrationForm = styled.form`
+export const StyledRegistrationForm = styled.form`
     max-width: 500px;
     padding: 10px;
     display: grid;
