@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import 'normalize.css';
 import { GlobalStyle } from "./GlobalStyle";
-// import { store } from './app/store';
-// import { Provider } from 'react-redux';
+import { store } from './app/store';
+import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <App />
+    <Provider store={store}>
+      <GlobalStyle />
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
