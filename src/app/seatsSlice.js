@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const seatsSlice = createSlice({
     name: 'seats',
     initialState: {
-        seats: []
+        seats: [],
     },
     reducers: {
-        getSeats: () => {},
-        setSeats: ({ seats }, payload) => {
-            seats.push(payload);
+        getSeats: () => { },
+        setSeats: ( state, { payload }) => {
+            state.seats = payload;
         },
     }
 });

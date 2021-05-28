@@ -13,7 +13,6 @@ const RegistrationForm = () => {
     //Narazie po odświeżeniu wraca do widoku formularza, ale lepszym rozwiązaniem raczej będzie dodanie przycisku 'cofnij' z sali kinowej
     useEffect(() => {
         history.replace("/");
-        dispatch(getSeats());
     }, []);
 
     if (!redirect) {
@@ -24,8 +23,10 @@ const RegistrationForm = () => {
                     <Input type="number" id="numberOfSeats" />
                     <Checkbox type="checkbox" id="sideBySide" />
                     <CheckboxLabel htmlFor="sideBySide">Czy miejsca mają być obok siebie?</CheckboxLabel>
-                    <Button onClick={() =>
-                        setRedirect(true)}>Wybierz miejsca</Button>
+                    <Button onClick={() => {
+                        setRedirect(true);
+                        dispatch(getSeats());
+                    }}>Wybierz miejsca</Button>
                 </StyledRegistrationForm>
             </Main>
         );

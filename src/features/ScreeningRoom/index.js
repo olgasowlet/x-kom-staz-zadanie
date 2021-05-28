@@ -1,40 +1,14 @@
-import { useEffect } from "react";
-import { fetchData } from "../../api";
+import { useSelector } from 'react-redux';
+import { selectSeats } from "../../app/seatsSlice";
 import { Screen, Seat } from "./styled";
 
 const ScreeningRoom = () => {
-    
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const { seats } = useSelector(selectSeats);
+    console.log(seats);
 
     return (
         <Screen>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
-            <Seat></Seat>
+            {seats.map(seat => <Seat key={seat.id}>{seat.id}</Seat>)}
         </Screen>
     );
 };
