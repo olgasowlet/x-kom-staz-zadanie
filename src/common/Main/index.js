@@ -2,7 +2,7 @@ import { StyledMain } from "./styled";
 
 const Main = (props) => {
     return (
-        <StyledMain>
+        <StyledMain {...props}>
             {props.children}
         </StyledMain>
     )

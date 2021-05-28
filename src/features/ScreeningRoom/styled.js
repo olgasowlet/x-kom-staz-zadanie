@@ -6,15 +6,15 @@ const handlePosition = (position) => {
 
 export const Screen = styled.div`
     display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fill, 70px);
+    width: 1040px;
+    grid-template-columns: repeat(auto-fill, min(60px));
     row-gap: 10px;
     column-gap: 10px;
 `;
 
 export const Seat = styled.div`
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border: 1px solid black;
     grid-row: ${({ row }) => handlePosition(row)};
     grid-column: ${({ column }) => handlePosition(column)};
