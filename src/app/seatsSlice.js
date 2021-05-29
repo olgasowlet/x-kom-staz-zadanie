@@ -25,11 +25,17 @@ const seatsSlice = createSlice({
         removeSeat: (state, { payload }) => {
             const index = state.seatsSBU.findIndex(seat => seat.id === payload);
             state.seatsSBU.splice(index, 1);
+        },
+        removeAllSeats: (state) => {
+            state.seatsSBU = [];
+        },
+        getSideBySideSeats: (state, { payload }) => {
+            state.seatsSBU = state.seats.filter(seat => seat.cords.x === payload.cords.x && (Math.abs(seat.cords.y - payload.cords.y) <= payload.qtySBU)).slice(0, payload.qtySBU);
         }
     }
 });
 
-export const { getSeats, setSeats, setQtySBU, toggleSideBySide, addSeat, removeSeat } = seatsSlice.actions;
+export const { getSeats, setSeats, setQtySBU, toggleSideBySide, addSeat, removeSeat, getSideBySideSeats, removeAllSeats } = seatsSlice.actions;
 export const selectSeats = state => state.seats;
 export const selectQtySBU = state => state.seats.qtySBU;
 export const selectSideBySide = state => state.seats.sideBySide;
