@@ -22,7 +22,7 @@ const RegistrationForm = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        console.log(`Liczba wybranych miejsc wynosi ${qtySBU} a miejsca są obok siebie ${sideBySide}`);
+        console.log(`Liczba wybranych miejsc wynosi ${qtySBU} a miejsca są obok siebie: ${sideBySide}`);
 
         setRedirect(true);
         dispatch(getSeats());
