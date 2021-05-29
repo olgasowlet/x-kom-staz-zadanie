@@ -10,6 +10,7 @@ export const Screen = styled.div`
     grid-template-columns: repeat(auto-fill, min(60px));
     row-gap: 10px;
     column-gap: 10px;
+    margin-top: 30px;
 `;
 
 export const Seat = styled.div`

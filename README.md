@@ -13,7 +13,7 @@
 ## Opis wykonania zadania
 Pracę rozpoczęłam od uporządkowania kodu wygenerowanego przez create-react-app. Następnie zabrałam się za tworzenie pierwszego widoku z formularzem rejestracji miejsc. Do stylowania używam Styled-Components.
 ## Czego nowego się nauczyłam?
-Już przy tworzeniu widoku formularza nauczyłam się jak stylować checkboxa ponieważ nigdy do tej pory tego nie robiłam.
+Już przy tworzeniu widoku formularza nauczyłam się jak stylować checkboxa ponieważ nigdy do tej pory tego nie robiłam. Poćwiczyłam grida. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 

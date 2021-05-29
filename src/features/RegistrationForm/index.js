@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from 'react-router-dom';
-import { getSeats } from "../../app/seatsSlice";
+import { getSeats, selectQtySBU, setQtySBU } from "../../app/seatsSlice";
 import Main from "../../common/Main";
 import { StyledRegistrationForm, Label, CheckboxLabel, Input, Checkbox, Button } from "./styled";
 
@@ -9,6 +9,19 @@ const RegistrationForm = () => {
     const [redirect, setRedirect] = useState(false);
     const history = useHistory();
     const dispatch = useDispatch();
+    const qtySBU = useSelector(selectQtySBU);
+
+    const onNumberChange = (event) => {
+        dispatch(setQtySBU(parseInt(event.target.value)));
+    }
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+        console.log(`Liczba wybranych miejsc wynosi ${qtySBU}`);
+
+        setRedirect(true);
+        dispatch(getSeats());
+    }
 
     //Narazie po odświeżeniu wraca do widoku formularza, ale lepszym rozwiązaniem raczej będzie dodanie przycisku 'cofnij' z sali kinowej
     useEffect(() => {
@@ -18,15 +31,12 @@ const RegistrationForm = () => {
     if (!redirect) {
         return (
             <Main>
-                <StyledRegistrationForm>
+                <StyledRegistrationForm onSubmit={onFormSubmit}>
                     <Label htmlFor="numberOfSeats">Liczba miejsc:</Label>
-                    <Input type="number" id="numberOfSeats" />
+                    <Input type="number" id="numberOfSeats" value={qtySBU} onChange={onNumberChange}/>
                     <Checkbox type="checkbox" id="sideBySide" />
                     <CheckboxLabel htmlFor="sideBySide">Czy miejsca mają być obok siebie?</CheckboxLabel>
-                    <Button onClick={() => {
-                        setRedirect(true);
-                        dispatch(getSeats());
-                    }}>Wybierz miejsca</Button>
+                    <Button>Wybierz miejsca</Button>
                 </StyledRegistrationForm>
             </Main>
         );
