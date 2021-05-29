@@ -24,7 +24,15 @@ const ScreeningRoom = () => {
     return (
         <Main screen>
             <Screen>
-                {seats ? seats.map(seat => <Seat key={seat.id} column={seat.cords.y} row={seat.cords.x} disabled={seat.reserved} type="checkbox" onInput={(event) => onSeatChange(event, seat.id, seat.cords.x, seat.cords.y)} />) : "Trwa ładowanie danych"}
+                {seats ? seats.map(seat => 
+                <Seat 
+                    key={seat.id} 
+                    column={seat.cords.y} 
+                    row={seat.cords.x} 
+                    disabled={seat.reserved} 
+                    type="checkbox" 
+                    onInput={(event) => onSeatChange(event, seat.id, seat.cords.x, seat.cords.y)} 
+                />) : "Trwa ładowanie danych"}
             </Screen>
         </Main>
     );
