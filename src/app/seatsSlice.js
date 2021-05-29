@@ -13,13 +13,16 @@ const seatsSlice = createSlice({
         setSeats: (state, { payload }) => {
             state.seats = payload;
         },
-        setQtySBU: ( state, { payload }) => {
+        setQtySBU: (state, { payload }) => {
             state.qtySBU = payload;
+        },
+        toggleSideBySide: (state) => {
+            state.sideBySide = !state.sideBySide;
         }
     }
 });
 
-export const { getSeats, setSeats, setQtySBU } = seatsSlice.actions;
+export const { getSeats, setSeats, setQtySBU, toggleSideBySide } = seatsSlice.actions;
 export const selectSeats = state => state.seats;
 export const selectQtySBU = state => state.seats.qtySBU;
 export const selectSideBySide = state => state.seats.sideBySide;
