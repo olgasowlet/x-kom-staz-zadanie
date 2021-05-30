@@ -58,6 +58,7 @@ const ScreeningRoom = () => {
                         row={seat.cords.x}
                         disabled={seat.reserved}
                         type="checkbox"
+                        checked={seatsSBU.find(s => s.id === seat.id) ? true : false}
                         onInput={(event) => onChange(event, seat.id, seat.cords.x, seat.cords.y)}
                     />) : "Trwa ładowanie danych"}
             </Screen>

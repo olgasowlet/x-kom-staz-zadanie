@@ -1,7 +1,8 @@
 import { call, put, select, takeEvery } from "redux-saga/effects";
 import { fetchData } from "../api/index";
 import { checkReservation } from "../features/ScreeningRoom/checkreservation";
-import { getSeats, removeAllSeats, selectSeatsSBU, setSeats, setSeatsSBU, setSideBySideSeats } from "./seatsSlice";
+import { getProposedSeats } from "../features/ScreeningRoom/getProposedSeats";
+import { getSeats, selectQtySBU, selectSeatsSBU, setSeats, setSeatsSBU, setSideBySideSeats } from "./seatsSlice";
 
 function* fetchSeatsHandler() {
     try {
@@ -11,6 +12,16 @@ function* fetchSeatsHandler() {
         yield call(alert, "Nie udało się przekazać danych z API do stanu aplikacji", error);
     };
 };
+
+function* getProposedSeatsHandler() {
+    try {
+        const quanity = yield select(selectQtySBU);
+        const proposalSeats = yield call(getProposedSeats, quanity);
+        yield put(setSeatsSBU(proposalSeats));
+    } catch (error) {
+        yield call(alert, "Nie udało się przekazać danych z API do stanu aplikacji", error);
+    }
+} 
 
 function* checkSeatsReservation() {
     try {
@@ -24,5 +35,6 @@ function* checkSeatsReservation() {
 
 export function* watchfetchSeats() {
     yield takeEvery(getSeats.type, fetchSeatsHandler);
+    yield takeEvery(getSeats.type, getProposedSeatsHandler);
     yield takeEvery(setSideBySideSeats.type, checkSeatsReservation);
 }
