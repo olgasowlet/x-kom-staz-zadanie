@@ -2,6 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addSeat, setSideBySideSeats, removeAllSeats, removeSeat, selectQtySBU, selectSeats, selectSeatsSBU, selectSideBySide } from "../../app/seatsSlice";
 import { Screen, Seat } from "./styled";
 import Main from "../../common/Main";
+import Key from '../../common/Key';
+import Button from '../../common/Button';
+import Container from '../../common/Container';
 
 const ScreeningRoom = () => {
     const { seats } = useSelector(selectSeats);
@@ -11,7 +14,7 @@ const ScreeningRoom = () => {
     const dispatch = useDispatch();
 
     const onChange = (event, id, x, y) => {
-        if (event.target.checked) {
+        if (event.target.checked) { //zmienić na zalezne od stanu wybranych siedzeń przez usera -> to co jest w stanie jest jednoczesnie checked
             onChecked(event, id, x, y);
         } else {
             onUnchecked(id)
@@ -49,20 +52,26 @@ const ScreeningRoom = () => {
     }
 
     return (
-        <Main screen>
-            <Screen>
-                {seats ? seats.map(seat =>
-                    <Seat
-                        key={seat.id}
-                        column={seat.cords.y}
-                        row={seat.cords.x}
-                        disabled={seat.reserved}
-                        type="checkbox"
-                        checked={seatsSBU.find(s => s.id === seat.id) ? true : false}
-                        onInput={(event) => onChange(event, seat.id, seat.cords.x, seat.cords.y)}
-                    />) : "Trwa ładowanie danych"}
-            </Screen>
-        </Main>
+        <>
+            <Main screen>
+                <Screen>
+                    {seats ? seats.map(seat =>
+                        <Seat
+                            key={seat.id}
+                            column={seat.cords.y}
+                            row={seat.cords.x}
+                            disabled={seat.reserved}
+                            type="checkbox"
+                            checked={seatsSBU.find(s => s.id === seat.id) ? true : false}
+                            onChange={(event) => onChange(event, seat.id, seat.cords.x, seat.cords.y)}
+                        />) : "Trwa ładowanie danych"}
+                </Screen>
+            </Main>
+            <Container>
+                <Key></Key>
+                <Button content="Rezerwuj" confirm={false}></Button>
+            </Container>
+        </>
     );
 };
 

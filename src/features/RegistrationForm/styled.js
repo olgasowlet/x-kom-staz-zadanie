@@ -47,14 +47,14 @@ export const Checkbox = styled.input`
     }
 `;
 
-export const Button = styled.button`
-    grid-area: button;
-    cursor: pointer;
-    background-color: white;
-    border: 1px solid black;
-    transition: background-color 1s;
+// export const Button = styled.button`
+//     grid-area: button;
+//     cursor: pointer;
+//     background-color: white;
+//     border: 1px solid black;
+//     transition: background-color 1s;
 
-    &:hover {
-        background-color: rgb(226, 95, 18, .5);
-    }
-`;
+//     &:hover {
+//         background-color: rgb(226, 95, 18, .5);
+//     }
+// `;
