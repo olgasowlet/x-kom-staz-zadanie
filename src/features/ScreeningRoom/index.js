@@ -3,10 +3,14 @@ import { addSeat, setSideBySideSeats, removeAllSeats, removeSeat, selectQtySBU, 
 import { Screen, Seat } from "./styled";
 import Main from "../../common/Main";
 import Key from '../../common/Key';
-import Button from '../../common/Button';
 import Container from '../../common/Container';
+import { useState } from 'react';
+import { Redirect, useHistory } from 'react-router';
+import { StyledButton } from '../../common/Button/styled';
 
 const ScreeningRoom = () => {
+    const [redirect, setRedirect] = useState(false);
+    const history = useHistory();
     const { seats } = useSelector(selectSeats);
     const qtySBU = useSelector(selectQtySBU);
     const seatsSBU = useSelector(selectSeatsSBU);
@@ -51,28 +55,41 @@ const ScreeningRoom = () => {
         sideBySide ? dispatch(removeAllSeats()) : dispatch(removeSeat(id));
     }
 
+    const handleClick = () => {
+        console.log("hej")
+        if (history.location.pathname === "/screening-room") {
+            setRedirect(true);
+        }
+    }
+
+    if (!redirect) {
+        return (
+            <>
+                <Main screen>
+                    <Screen>
+                        {seats ? seats.map(seat =>
+                            <Seat
+                                key={seat.id}
+                                column={seat.cords.y}
+                                row={seat.cords.x}
+                                disabled={seat.reserved}
+                                type="checkbox"
+                                checked={seatsSBU.find(s => s.id === seat.id) ? true : false}
+                                onChange={(event) => onChange(event, seat.id, seat.cords.x, seat.cords.y)}
+                            />) : "Trwa ładowanie danych"}
+                    </Screen>
+                </Main>
+                <Container>
+                    <Key></Key>
+                    <StyledButton onClick={handleClick} confirm={false} >Rezerwuj</StyledButton>
+                </Container>
+            </>
+        );
+    }
+
     return (
-        <>
-            <Main screen>
-                <Screen>
-                    {seats ? seats.map(seat =>
-                        <Seat
-                            key={seat.id}
-                            column={seat.cords.y}
-                            row={seat.cords.x}
-                            disabled={seat.reserved}
-                            type="checkbox"
-                            checked={seatsSBU.find(s => s.id === seat.id) ? true : false}
-                            onChange={(event) => onChange(event, seat.id, seat.cords.x, seat.cords.y)}
-                        />) : "Trwa ładowanie danych"}
-                </Screen>
-            </Main>
-            <Container>
-                <Key></Key>
-                <Button content="Rezerwuj" confirm={false}></Button>
-            </Container>
-        </>
-    );
+        <Redirect to="/confirmation" />
+    )
 };
 
 export default ScreeningRoom;
