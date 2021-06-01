@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from 'react-router-dom';
 import { getSeats, selectQtySBU, selectSideBySide, setQtySBU, toggleSideBySide } from "../../app/seatsSlice";
-import Button from "../../common/Button";
 import Main from "../../common/Main";
-import { StyledRegistrationForm, Label, CheckboxLabel, Input, Checkbox} from "./styled";
+import { StyledRegistrationForm, Label, CheckboxLabel, Input, Checkbox } from "./styled";
+import { StyledButton } from "../../common/Button/styled";
 
 const RegistrationForm = () => {
     const [redirect, setRedirect] = useState(false);
@@ -39,10 +39,10 @@ const RegistrationForm = () => {
             <Main>
                 <StyledRegistrationForm onSubmit={onFormSubmit}>
                     <Label htmlFor="numberOfSeats">Liczba miejsc:</Label>
-                    <Input type="number" id="numberOfSeats" value={qtySBU} onChange={onNumberChange}/>
-                    <Checkbox type="checkbox" id="sideBySide" value={sideBySide} onChange={onCheckboxChange}/>
+                    <Input type="number" id="numberOfSeats" value={qtySBU} onChange={onNumberChange} />
+                    <Checkbox type="checkbox" id="sideBySide" value={sideBySide} onChange={onCheckboxChange} />
                     <CheckboxLabel htmlFor="sideBySide">Czy miejsca mają być obok siebie?</CheckboxLabel>
-                    <Button content="Wybierz miejsca" confirm={true}></Button>
+                    <StyledButton confirm={true}>Wybierz miejsca</StyledButton>
                 </StyledRegistrationForm>
             </Main>
         );
