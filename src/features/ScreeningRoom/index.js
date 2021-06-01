@@ -19,7 +19,7 @@ const ScreeningRoom = () => {
     const dispatch = useDispatch();
 
     const onChange = (event, id, x, y) => {
-        if (event.target.checked) { //zmienić na zalezne od stanu wybranych siedzeń przez usera -> to co jest w stanie jest jednoczesnie checked
+        if (event.target.checked) { 
             onChecked(event, id, x, y);
         } else {
             onUnchecked(id)
@@ -51,7 +51,6 @@ const ScreeningRoom = () => {
     }
 
     const handleClick = () => {
-        console.log("hej")
         if (history.location.pathname === "/screening-room") {
             setRedirect(true);
         }
