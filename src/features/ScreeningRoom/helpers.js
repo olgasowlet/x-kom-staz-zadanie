@@ -1,41 +1,34 @@
-export const checkReservation = (seats, id, qtySBU, x) => {
-    if (!seats.length) {
-        return
+const checkCordsY = (s, i, element) => {
+    let result = 0;
+
+    if (typeof element[i+1] === `undefined`) {
+        result = s.cords.y - element[i-1].cords.y 
+    } else {
+        result = element[i+1].cords.y - s.cords.y
     }
 
+    return result;
+}
+
+export const checkReservation = (seats, id, qtySBU, x) => {
     seats = [
         ...seats.filter(s => s.reserved === false && s.cords.x === x)
     ];
 
     const index = seats.findIndex(s => s.id === id);
+    const seatsy = [];
 
-    seats = [
-        ...seats.slice(index - Math.floor(qtySBU / 2), index + Math.ceil(qtySBU / 2))
-    ];
-
-    let propose = []
-
-    seats.forEach((s, index) => {
-        if (seats[index - 1] === undefined) {
-            if (Math.abs(seats[index + 1].cords.y - s.cords.y === 1)) {
-                propose.push(s);
-            }
-        } else {
-            if (Math.abs(s.cords.y - seats[index - 1].cords.y === 1)) {
-                propose.push(s);
-            }
-        }
-    });
-
-    if (propose.length < qtySBU) {
-        if ((seats[index - 1] === undefined) || (seats[index + 1] === undefined)) {
-            propose = [];
-        } else {
-            propose.push(seats[index - 1]) || propose.push(seats[index + 1]);
-        }
+    for (let i=0; seatsy.length < 15; i ++) {
+        seatsy.push(i);
     }
 
-    return propose;
+    let propose = []
+    const tests = seats.map((s, index) => seats.slice(index, index + qtySBU))
+    const test = tests.map(s => s)
+    
+    propose = test.find(element => (element.some(s => s.id === id) && element.every((s, i, element) => checkCordsY(s, i, element) === 1)) === true);
+
+    return (typeof propose === `undefined` ? [] : propose);
 }
 
 export const getSeatsUnreserved = (seats, q) => {
