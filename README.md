@@ -1,25 +1,35 @@
 # Zadanie Rekrutacyjne Staż X-kom
 
-## To-Do
+Aplikacja służąca do rezerwacji miejsc w kinie. Dane o miejscach (pozycji i statusie rezerwacji) pobierane są z API. 
+Uzytkownik może:
+- wybrać ilość miejsc
+- określić, czy miejsca mają być obok siebie
 
-- OG image, icon itd.
-- widoki x3 - wejście, wybór miejsc, potwierdzenie rezerwacji
-- LOGIKA
-    - Po kliknięciu "Wybierz miejsca" przekazanie wartości inputów do stanu oraz przekierowanie do widoku sali kinowej.
-- deployment na gh pages
-- walidacja numery miejsc (nie mniej niż 0 i max tyle ile jest możliwych)
-- poprawić check icon tak, żeby wystawał
+Po zatwierdzeniu formularza uzytkownikowi wyświetla się widok sali. W tym momencie może zdecydować, które miejsca wybrać. Jeśli użytkownik zaznaczył, że miejsca mają być obok siebie to za pomocą jednego kliknięcia automatycznie podświetlą się miejsca dostępne obok. Jeżeli użytkownik wybierze miejsce, które obok siebie nie ma dostępnych miejsc to pokaże się komunikat z prośbą o wybranie innego miejsca.
+
+Po kliknięciu w "Rezerwuj" użytkownik zostanie przeniesiony do podsumowania.
+
+![gif](https://raw.githubusercontent.com/olgasowlet/x-kom-staz-zadanie/main/src/images/intro.gif)
+
+## Co bym jeszcze dopracowała?
+
+- Walidacje - Uzytkonik musi wybrać ilość miejsc wiekszą od 0
+- Poprawa intuicyjności wyboru miejsc - obecnie, aby wybrać nowe miejsca nalezy "odkliknąć" miejsca już wybrane, lepiej by było, zeby klikając na dowolne inne miejsce automatycznie te poprzednio wybrane się usuwały
 
 ## Opis wykonania zadania
-Pracę rozpoczęłam od uporządkowania kodu wygenerowanego przez create-react-app. Następnie zabrałam się za tworzenie pierwszego widoku z formularzem rejestracji miejsc. Do stylowania używam Styled-Components.
+
+Pracę rozpoczęłam od uporządkowania kodu wygenerowanego przez create-react-app. Następnie zabrałam się za tworzenie pierwszego widoku z formularzem rejestracji miejsc. Do stylowania używam Styled-Components. Następnie zaczęłam pracę nad widokiem sali i pobieraniem danych z API - wykorzystałam do tego axiosa. Kolejnym krokiem było stworzenie stanu aplikacji oraz sagi. Najwięcej czasu zajęło mi stworzenie funkcji, która weryfikowała, czy obok wybranego miejsca nie ma pustej przestrzeni ani zajetego już miejsca. Chętnie więcej o mich wrażeniach opowiem na rozmowie rekrutacyjnej bo zdecydowanie wolę opowiadać niż opisywać :D 
+
 ## Czego nowego się nauczyłam?
-Już przy tworzeniu widoku formularza nauczyłam się jak stylować checkboxa ponieważ nigdy do tej pory tego nie robiłam. Poćwiczyłam grida. 
+Już przy tworzeniu widoku formularza nauczyłam się jak stylować checkboxa ponieważ nigdy do tej pory tego nie robiłam. W ogóle całe to ćwiczenie było dla mnie super do obycia się bardziej z Redux i Redux Saga. Jednak chyba najwięcej nauczyłam się przy pracy na tablicach i obiektach, obyłam się bardziej z różnymi metodami z którymi wcześniej nie miałam okazji się zakolegować :D
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm run api`
 
 ### `npm start`
 
