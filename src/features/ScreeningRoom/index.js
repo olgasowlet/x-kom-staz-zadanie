@@ -70,7 +70,7 @@ const ScreeningRoom = () => {
                                 type="checkbox"
                                 checked={seatsSBU.find(s => s.id === seat.id) ? true : false}
                                 onChange={(event) => onChange(event, seat.id, seat.cords.x, seat.cords.y)}
-                            />) : "Trwa ładowanie danych"}
+                            />) : "Brak danych"}
                     </Screen>
                 </Main>
                 <Container>
