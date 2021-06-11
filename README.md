@@ -15,6 +15,7 @@ Po kliknięciu w "Rezerwuj" użytkownik zostanie przeniesiony do podsumowania.
 
 - Walidacje - Uzytkonik musi wybrać ilość miejsc wiekszą od 0
 - Poprawa intuicyjności wyboru miejsc - obecnie, aby wybrać nowe miejsca nalezy "odkliknąć" miejsca już wybrane, lepiej by było, zeby klikając na dowolne inne miejsce automatycznie te poprzednio wybrane się usuwały
+- Lepsze powiadomienia o ewentualnych niepowodzeniach w wyborze miejsc
 
 ## Opis wykonania zadania
 
