@@ -30,8 +30,8 @@ function* checkSeatsReservationHandler() {
             alert("Proszę wybrać inne miejsca");
         }
 
-    } catch {
-        yield call(alert, "Popsute :/");
+    } catch (error) {
+        yield call(console.log, error);
     }
 };
 
