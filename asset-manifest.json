@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/x-kom-staz-zadanie/static/js/main.a915d18b.chunk.js",
+    "main.js.map": "/x-kom-staz-zadanie/static/js/main.a915d18b.chunk.js.map",
+    "runtime-main.js": "/x-kom-staz-zadanie/static/js/runtime-main.fac9671d.js",
+    "runtime-main.js.map": "/x-kom-staz-zadanie/static/js/runtime-main.fac9671d.js.map",
+    "static/css/2.679831fc.chunk.css": "/x-kom-staz-zadanie/static/css/2.679831fc.chunk.css",
+    "static/js/2.cfd6e68c.chunk.js": "/x-kom-staz-zadanie/static/js/2.cfd6e68c.chunk.js",
+    "static/js/2.cfd6e68c.chunk.js.map": "/x-kom-staz-zadanie/static/js/2.cfd6e68c.chunk.js.map",
+    "index.html": "/x-kom-staz-zadanie/index.html",
+    "static/css/2.679831fc.chunk.css.map": "/x-kom-staz-zadanie/static/css/2.679831fc.chunk.css.map",
+    "static/js/2.cfd6e68c.chunk.js.LICENSE.txt": "/x-kom-staz-zadanie/static/js/2.cfd6e68c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fac9671d.js",
+    "static/css/2.679831fc.chunk.css",
+    "static/js/2.cfd6e68c.chunk.js",
+    "static/js/main.a915d18b.chunk.js"
+  ]
+}
