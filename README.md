@@ -1,5 +1,7 @@
 # Zadanie Rekrutacyjne Staż X-kom
 
+Demo: https://olgasowlet.github.io/x-kom-staz-zadanie/
+
 Aplikacja służąca do rezerwacji miejsc w kinie. Dane o miejscach (pozycji i statusie rezerwacji) pobierane są z API. 
 Uzytkownik może:
 - wybrać ilość miejsc
